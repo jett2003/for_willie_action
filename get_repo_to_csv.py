@@ -9,6 +9,8 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 USERNAME = os.getenv("USERNAME")
 
+if not TOKEN or not USERNAME:
+    raise ValueError("請先設定 TOKEN 與 USERNAME 的環境變數")
 
 def get_repositories(token):
     url = "https://api.github.com/user/repos"
